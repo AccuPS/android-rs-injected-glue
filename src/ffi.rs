@@ -939,7 +939,7 @@ extern { pub fn ASensorEventQueue_hasEvents(queue: *mut ASensorEventQueue) -> c_
 extern { pub fn ASensorEventQueue_setEventRate(queue: *mut ASensorEventQueue, sensor: *const ASensor, usec: i32) -> c_int; }
 pub type ASensorList = *const ASensorRef;
 pub type ASensorManager = c_void;
-extern { pub fn ASensorManager_createEventQueue(manager: *mut ASensorManager, looper: *mut ALooper, ident: c_int, callback: ALooper_callbackFunc, data: *mut c_void) -> *mut ASensorEventQueue; }
+extern { pub fn ASensorManager_createEventQueue(manager: *mut ASensorManager, looper: *mut ALooper, ident: c_int, callback: Option<ALooper_callbackFunc>, data: *mut c_void) -> *mut ASensorEventQueue; }
 extern { pub fn ASensorManager_destroyEventQueue(manager: *mut ASensorManager, queue: *mut ASensorEventQueue) -> c_int; }
 extern { pub fn ASensorManager_getDefaultSensor(manager: *mut ASensorManager, xtype: c_int) -> *const ASensor; }
 extern { pub fn ASensorManager_getDefaultSensorEx(manager: *mut ASensorManager, xtype: c_int, wakeUp: bool) -> *const ASensor; }
